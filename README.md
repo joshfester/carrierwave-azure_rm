@@ -27,6 +27,7 @@ CarrierWave.configure do |config|
   config.azure_storage_account_name = 'YOUR STORAGE ACCOUNT NAME'
   config.azure_storage_access_key = 'YOUR STORAGE ACCESS KEY'
   config.azure_storage_blob_host = 'YOUR STORAGE BLOB HOST' # optional
+  config.azure_storage_dns_suffix = 'YOUR STORAGE DNS SUFFIX' # optional
   config.azure_container = 'YOUR CONTAINER NAME'
   config.asset_host = 'YOUR CDN HOST' # optional
 end
@@ -46,7 +47,7 @@ return signed urls on the files. Enable auto_sign in the configuration:
 
 ```ruby
 config.auto_sign_urls = true
-config.token_expire_after = 3600 # optional - Set the expire time of the url to 3600 seconds. Default is 1800 seconds 
+config.token_expire_after = 3600 # optional - Set the expire time of the url to 3600 seconds. Default is 1800 seconds
 ```
 
 If you wish a newly created container to be initialized with a specific access_level you can set the following in
@@ -58,7 +59,7 @@ config.public_access_level = 'private' # optional - possible values are blob, pr
 
 This config is only required if your container does not exist and you want it to be configured automatically.
 
-[Manage access to blobs](https://docs.microsoft.com/en-us/azure/storage/storage-manage-access-to-resources) 
+[Manage access to blobs](https://docs.microsoft.com/en-us/azure/storage/storage-manage-access-to-resources)
 
 ## Issues
 If you have any problems with or questions about this image, please contact me through a [GitHub issue](https://github.com/krismichalski/carrierwave-azure_rm/issues).

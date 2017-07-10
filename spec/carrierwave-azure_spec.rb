@@ -9,6 +9,7 @@ describe CarrierWave::Uploader::Base do
     is_expected.to respond_to(:azure_storage_account_name)
     is_expected.to respond_to(:azure_storage_access_key)
     is_expected.to respond_to(:azure_storage_blob_host)
+    is_expected.to respond_to(:azure_storage_dns_suffix)
     is_expected.to respond_to(:azure_container)
     is_expected.to respond_to(:auto_sign_urls)
     is_expected.to respond_to(:token_expire_after)

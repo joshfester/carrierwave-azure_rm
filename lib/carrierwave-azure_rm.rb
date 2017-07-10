@@ -6,6 +6,7 @@ class CarrierWave::Uploader::Base
   add_config :azure_storage_account_name
   add_config :azure_storage_access_key
   add_config :azure_storage_blob_host
+  add_config :azure_storage_dns_suffix
   add_config :azure_container
   add_config :public_access_level
   add_config :auto_sign_urls

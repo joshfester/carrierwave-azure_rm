@@ -13,13 +13,16 @@ module CarrierWave
         CarrierWave::Storage::AzureRM::File.new(uploader, connection, uploader.store_path(identifer), signer)
       end
 
-      def connection
-        @connection ||= begin
-          %i(storage_account_name storage_access_key storage_blob_host).each do |key|
-            ::Azure::Storage.send("#{key}=", uploader.send("azure_#{key}"))
-          end
-          ::Azure::Storage::Blob::BlobService.new
+      def connection_options
+        %i(storage_account_name storage_access_key storage_blob_host storage_dns_suffix).reduce({}) do |memo, key|
+          value = uploader.send(:"azure_#{key}")
+          memo[key] = value if value
+          memo
         end
+      end
+
+      def connection
+        @connection ||= Azure::Storage::Client.create(connection_options).blob_client
       end
 
       def signer
